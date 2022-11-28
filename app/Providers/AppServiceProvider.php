@@ -2,6 +2,8 @@
 
 namespace App\Providers;
 
+use App\Utils\Fibonacci\Fibonacci;
+use App\Utils\Fibonacci\FibonacciInterface;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -13,7 +15,10 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        //
+        $this->app->bind(
+            FibonacciInterface::class,
+            Fibonacci::class,
+        );
     }
 
     /**
