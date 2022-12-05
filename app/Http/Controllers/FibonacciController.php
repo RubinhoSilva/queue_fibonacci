@@ -3,10 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\Fibonacci\StartRequest;
+use App\Http\Resources\FibonacciIndexResource;
 use App\Http\Resources\FibonacciResource;
 use App\Http\Services\FibonacciService;
 use Exception;
-use Illuminate\Http\Request;
 
 class FibonacciController extends Controller
 {
@@ -22,6 +22,16 @@ class FibonacciController extends Controller
     {
         try {
             return new FibonacciResource($this->fibonacciService->start($request->all()));
+        } catch (Exception $e) {
+            info($e->getMessage());
+            abort(500);
+        }
+    }
+
+    public function index()
+    {
+        try {
+            return new FibonacciIndexResource($this->fibonacciService->index());
         } catch (Exception $e) {
             info($e->getMessage());
             abort(500);

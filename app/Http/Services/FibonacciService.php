@@ -19,6 +19,11 @@ class FibonacciService
 
     }
 
+    public function index()
+    {
+        return Fibonacci::all();
+    }
+
     public function get($id)
     {
         return Fibonacci::findOrFail($id);
