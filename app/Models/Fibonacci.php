@@ -21,6 +21,6 @@ class Fibonacci extends Model
     ];
 
     public function getacceptedAttribute(){
-        return $this->max_seconds >= abs(strtotime($this->finished) - strtotime($this->started));
+        return $this->max_seconds >= abs(strtotime($this->finished) - strtotime($this->started)) and !is_null($this->value);
     }
 }

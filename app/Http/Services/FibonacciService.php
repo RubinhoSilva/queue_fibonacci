@@ -21,7 +21,7 @@ class FibonacciService
 
     public function index()
     {
-        return Fibonacci::all();
+        return Fibonacci::simplePaginate();
     }
 
     public function get($id)
